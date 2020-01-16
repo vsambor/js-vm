@@ -1,3 +1,22 @@
-const MEMORY_SIZE = require('../constants').MEMORY_SIZE;
+// Random Access Memory
+// TODO - 
 
-module.exports = new Uint8Array(MEMORY_SIZE);
+// 16 bits -> 2^16
+const MEMORY_SIZE = 65536;
+
+class Memory {
+  constructor() {
+    // 128 kb.
+    this._memory = new Uint16Array(MEMORY_SIZE);
+  }
+
+  read(position) {
+    return this._memory[position];
+  }
+
+  write(position, data) {
+    this._memory[position] = data;
+  }
+}
+
+module.exports = Memory;
